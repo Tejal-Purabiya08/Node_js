@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <form action="/editData" method="post" class="form-control w-25 p-4">
+        <input type="hidden" name="id" value="<%= data.id%>"><br>
+        <input type="text" name="title" placeholder="Book Title" class="form-control" value="<%= data.title%>"><br>
+        <input type="text" name="author" placeholder="Book Author" class="form-control" value="<%= data.author%>"><br>
+        <input type="number" name="price" placeholder="Book Price" class="form-control" value="<%= data.price%>"><br>
+        <input type="submit" class="form-control">
+    </form>
+</body>
+</html>
