@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body >
+    <div  style="display: flex; justify-content: center">
+    <form action="/movie/movieData" method="post" class="form-control w-25 p-2">
+      <input
+        type="text"
+        name="moviename"
+        placeholder="movie Name"
+        class="form-control"
+      /><br />
+      <input
+        type="text"
+        name="director"
+        placeholder="Movie Director"
+        class="form-control"
+      /><br />
+      <input
+        type="number"
+        name="releaseyear"
+        placeholder="Release Year"
+        class="form-control"
+      /><br />
+      <select name="language" class="form-select">
+        <option value="">all</option>
+        <option value="hindi">hindi</option>
+        <option value="gujarati">Gujarati</option>
+        <option value="english">English</option>
+      </select>
+      <br />
+      <textarea
+        name="description"
+        placeholder="Description"
+        class="form-control"
+      ></textarea>
+      <br />
+      <input type="submit" class="form-control" />
+    </form>
+    </div>
+
+    <div  style="display: flex; justify-content:center; gap:20px; margin: 50px;">
+    <% data.map((mov,i)=> {%>
+    <div class="card p-2" style="width: 400px;">
+      <div class="card-body">
+        <h6 class="card-text">Movie Name :<%= mov.moviename%></h6>
+        <h6 class="card-text">Movie Director :<%= mov.director%></h6>
+        <h6 class="card-text">Release Year :<%= mov.releaseyear%></h6>
+        <h6 class="card-text">Language :<%= mov.language%></h6>
+        <p class="card-text">
+          <%= mov.description%>
+        </p>
+      </div>
+      <a href="/movie/delete?id=<%= mov._id%>" class="btn btn-dark" >Delete</a>
+      <a href="/movie/edit?id=<%= mov._id%>" class="btn btn-dark mt-3">Edit</a>
+    </div>
+    <%})%>
+    </div>
+  </body>
+</html>
