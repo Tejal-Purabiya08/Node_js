@@ -7,6 +7,6 @@ app.use(express.urlencoded())
 
 app.use("/movie",M_routes)
 
-app.listen(3005,()=>{
+app.listen(3006,()=>{
     console.log("server listen")
 })
