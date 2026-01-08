@@ -25,5 +25,25 @@
       <input type="file" name="image" placeholder="image" />
       <input type="submit" />
     </form>
+
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Qauntity</th>
+        <th>category</th>
+        <th>Image</th>
+      </tr>
+
+      <% data.map((el,i) => {%>
+        <tr>
+          <td><%= el.title%></td>
+          <td><%= el.price%></td>
+          <td><%= el.qty%></td>
+          <td><%= el.categoryId.title%></td>
+          <td><img src="<%= el.image%>" alt="<%= el.title%>" height="100px" width="100px"></td>
+        </tr>
+        <%})%>
+    </table>
   </body>
 </html>

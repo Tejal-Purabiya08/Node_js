@@ -16,6 +16,7 @@ const LocalAuth = (passport) => {
       return done(null, user);
     })
   );
+
   passport.serializeUser((user, done) => {
     done(null, user.id);
   });

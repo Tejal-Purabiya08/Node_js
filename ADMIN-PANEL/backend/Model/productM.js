@@ -7,9 +7,6 @@ const productSchema=mongoose.Schema({
     price:{
         type:String
     },
-    qty:{
-        type:String
-    },
     image:{
         type:String
     },

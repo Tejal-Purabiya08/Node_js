@@ -3,7 +3,7 @@ const productData = require("../Model/productM");
 const categoryData = require("../Model/categoryM");
 
 const PostProduct = async (req, res) => {
-  const { title, price, qty, categoryId } = req.body;
+  const { title, price,  categoryId } = req.body;
   let image = "";
 
   if (req.file) {
@@ -13,7 +13,6 @@ const PostProduct = async (req, res) => {
   await productData.create({
     title: title,
     price: price,
-    qty: qty,
     categoryId: categoryId,
     image: image,
   });
@@ -36,21 +35,20 @@ const GetProduct = async (req, res) => {
   res.render("product", { data, category });
 };
 
-const GetProductAPI = async (req, res) => {
-  const data = await productData.find({}).populate("categoryId");
-  res.json(data);
-};
+// const GetProductAPI = async (req, res) => {
+//   const data = await productData.find({}).populate("categoryId");
+//   res.json(data);
+// };
 
 const GetProductsByCategory = async (req, res) => {
   const { categoryId } = req.params;
   const data = await productData.find({ categoryId }).populate("categoryId");
-  res.json(data);
+  res.render("category")
 };
 
 module.exports = {
   PostProduct,
   GetProduct,
   ImageUpload,
-  GetProductAPI,
-  GetProductsByCategory,
+  GetProductsByCategory,  
 };
